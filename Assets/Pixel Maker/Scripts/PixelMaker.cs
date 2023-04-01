@@ -1,6 +1,5 @@
 ﻿#if UNITY_EDITOR
 
-using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
@@ -155,6 +154,11 @@ namespace PixelMaker
 
                 _animation = animation;
             }
+
+            if (_preview != null && GUILayout.Button("Apply Material"))
+            {
+                _preview.UpdateTextureMaterial(_settings);
+            }
         }
 
         #endregion Private methods
@@ -165,7 +169,7 @@ namespace PixelMaker
         static protected void OpenWindow()
         {
             var window = GetWindow<PixelMaker>();
-            window.position = GUIHelper.GetEditorWindowRect().AlignCenter(1000, 1000);
+            window.position = GUIHelper.GetEditorWindowRect().AlignCenter(1230, 1000);
         }
 
         #endregion Statics

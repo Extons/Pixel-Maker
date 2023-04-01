@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_Pixelated16Bit
+  m_Name: PixelatedBit
   m_Shader: {fileID: 4800000, guid: 167de04442c689f41ad6a2caebcbb1c5, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,15 +20,26 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1875b6a8fb148514ab1d9494eae2dd9e, type: 3}
+        m_Texture: {fileID: 8400000, guid: a8636445407956842b56fc64b9be9aaf, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _PaletteTex:
+    - _Palette:
         m_Texture: {fileID: 2800000, guid: fff60c0a63605f34bb7ab4c7a2fa50af, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _PaletteTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Bit: 1
+    - _BitValue: 64
+    - _Contrast: 1
+    - _Offset: 120
     - _OutlineThickness: 0.0316
+    - _OutlineWidth: 1
+    - _Palette: 1
+    - _Saturation: 0
     m_Colors:
-    - _OutlineColor: {r: 0.13207549, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

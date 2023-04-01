@@ -1,5 +1,4 @@
 ﻿using Sirenix.OdinInspector;
-using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -9,6 +8,12 @@ namespace PixelMaker
     [CreateAssetMenu(menuName = "Tools/PixelMaker/" + nameof(PixelMakerPreviewConfig))]
     public class PixelMakerPreviewConfig : ScriptableObject
     {
+        #region Data
+
+        private int[] _bitsValues = { 1, 2, 4, 8, 16, 32, 64, 128, 256 };
+
+        #endregion Data
+
         #region Serialized members
 
         [FoldoutGroup("Rendering Settings")]
@@ -27,36 +32,39 @@ namespace PixelMaker
 
         [FoldoutGroup("Toon Shader")]
         [SerializeField, Required]
-        private Color _toonColor = default;
+        private bool _usePalette = default;
 
         [FoldoutGroup("Toon Shader")]
         [SerializeField, Required]
-        [ColorUsage(true, true)]
-        private Color _toonAmbiantColor = default;
+        private bool _convertToBit = default;
 
         [FoldoutGroup("Toon Shader")]
         [SerializeField, Required]
-        [ColorUsage(true, true)]
-        private Color _toonSpecularColor = default;
+        [InlineEditor]
+        [ShowIf(nameof(_usePalette))]
+        private ColorPalette _palette = default;
 
         [FoldoutGroup("Toon Shader")]
         [SerializeField, Required]
-        [ColorUsage(true, true)]
-        private Color _toonRimColor = default;
+        private Color _outlineColor = default;
 
         [FoldoutGroup("Toon Shader")]
         [SerializeField, Required]
-        [Range(0f, 1f)]
-        private float _toonRimAmount = default;
+        private float _outlineWidth = default;
 
         [FoldoutGroup("Toon Shader")]
         [SerializeField, Required]
-        [Range(0f, 1f)]
-        private float _toonRimThreshold = default;
+        private float _saturation = default;
 
         [FoldoutGroup("Toon Shader")]
         [SerializeField, Required]
-        private float _toonGlossiness = default;
+        private float _contrast = default;
+
+        [FoldoutGroup("Toon Shader")]
+        [SerializeField, Required]
+        [ValueDropdown(nameof(_bitsValues))]
+        [ShowIf(nameof(_convertToBit))]
+        private int _bitValue = default;
 
         [FoldoutGroup("Animator")]
         [SerializeField, Required]
@@ -65,7 +73,7 @@ namespace PixelMaker
 
         [FoldoutGroup("Animator")]
         [SerializeField, Required]
-        [ValueDropdown(nameof(GetAnimationClips), NumberOfItemsBeforeEnablingSearch = 0)]
+        [ValueDropdown(nameof(GetAnimationClipsFromModels), NumberOfItemsBeforeEnablingSearch = 0)]
         private AnimationClip _clip = default;
 
         [BoxGroup("Model/Model Position", GroupName = "Position")]
@@ -127,19 +135,21 @@ namespace PixelMaker
 
         public Color Background => _background;
 
-        public Color ToonColor => _toonColor;
+        public bool ConvertToBit => _convertToBit;
 
-        public Color ToonAmbiantColor => _toonAmbiantColor;
+        public bool UsePalette => _usePalette;
 
-        public Color ToonSpecularColor => _toonSpecularColor;
+        public ColorPalette Palette => _palette;
 
-        public Color ToonRimColor => _toonRimColor;
+        public Color OutlineColor => _outlineColor;
 
-        public float ToonRimAmount => _toonRimAmount;
+        public float OutlineWidth => _outlineWidth;
 
-        public float ToonRimThreshold => _toonRimThreshold;
+        public float Saturation => _saturation;
 
-        public float ToonGlossiness => _toonGlossiness;
+        public float Contrast => _contrast;
+
+        public float BitValue => _bitValue;
 
         public int SourceRenderScale => _sourceRenderScale;
 
@@ -173,11 +183,11 @@ namespace PixelMaker
 
         #region Private methods
 
-        private IEnumerable<AnimationClip> GetAnimationClips()
+        private List<AnimationClip> GetAnimationClips()
         {
             List<AnimationClip> clips = new List<AnimationClip>();
 
-            var guids = AssetDatabase.FindAssets("t:AnimationClip");
+            var guids = AssetDatabase.FindAssets("t:animation");
             foreach (var guid in guids)
             {
                 var path = AssetDatabase.GUIDToAssetPath(guid);
@@ -192,10 +202,34 @@ namespace PixelMaker
             return clips;
         }
 
+        private IEnumerable<AnimationClip> GetAnimationClipsFromModels()
+        {
+            List<AnimationClip> animationClips = GetAnimationClips();
+
+            var guids = AssetDatabase.FindAssets("t:model");
+            foreach (var guid in guids)
+            {
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                var subObjects = AssetDatabase.LoadAllAssetsAtPath(path);
+
+                foreach(var subObject in subObjects)
+                {
+                    var clip = subObject as AnimationClip;
+                    if(clip != null
+                        && !animationClips.Contains(clip))
+                    {
+                        animationClips.Add(clip);
+                    }
+                }
+            }
+
+            return animationClips;
+        }
+
         private IEnumerable<GameObject> GetAllModels()
         {
             var models = new List<GameObject>();
-            
+
             var guids = AssetDatabase.FindAssets("t:model");
             foreach (var guid in guids)
             {

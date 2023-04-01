@@ -31,13 +31,17 @@ namespace PixelMaker
             Rect texturePreviewRect = new Rect(position.x, position.y, previewAttribute.width, previewAttribute.height);
             Rect backgroundRect = new Rect(position.x, position.y, previewAttribute.width, previewAttribute.height);
 
-            var style = new GUIStyle(GUI.skin.box);
+            if (previewAttribute.background)
+            {
+                var style = new GUIStyle(GUI.skin.box);
 
-            style.normal.background = CreateColor(Color.black);
-            style.stretchWidth = true;
-            style.stretchHeight = true;
+                style.normal.background = CreateColor(Color.black);
+                style.stretchWidth = true;
+                style.stretchHeight = true;
 
-            EditorGUI.LabelField(backgroundRect, GUIContent.none, style); 
+                EditorGUI.LabelField(backgroundRect, GUIContent.none, style);
+            }
+
             GUI.DrawTexture(texturePreviewRect, texture, ScaleMode.ScaleToFit);
         }
 

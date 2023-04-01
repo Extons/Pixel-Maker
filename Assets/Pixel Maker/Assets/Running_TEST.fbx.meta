@@ -6,17 +6,7 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: Run
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Beta_HighLimbsGeoSG3
-    second: {fileID: 2100000, guid: 7ec85ef699bfba04f8eb257f199d03ff, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Beta_Joints_MAT1
-    second: {fileID: 2100000, guid: 7ec85ef699bfba04f8eb257f199d03ff, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

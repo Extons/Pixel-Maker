@@ -28,13 +28,16 @@ namespace PixelMaker
         private RenderTexture _destination = null;
 
         [SerializeField, Required]
+        private RenderTexture _normal = null;
+
+        [SerializeField, Required]
         private RenderTextureFormat _renderTextureFormat = default;
 
         [SerializeField, Required]
         private Shader _normalShader = default;
 
         [SerializeField, Required]
-        private Material _toonMaterial = default;
+        private Material _bitColorMaterial = default;
 
         [SerializeField, Required]
         private PixelMakerPreviewConfig _previewConfig = null;
@@ -51,13 +54,15 @@ namespace PixelMaker
 
         public RenderTexture Destination => _destination;
 
+        public RenderTexture Normal => _normal;
+
         public RenderTextureFormat RenderTextureFormat => _renderTextureFormat;
 
         public Shader NormalShader => _normalShader;
 
-        public Material ToonMaterial => _toonMaterial;
-
         public PixelMakerPreviewConfig PreviewConfig => _previewConfig;
+
+        public Material BitColorMaterial => _bitColorMaterial;
 
         #endregion Public members
     }
