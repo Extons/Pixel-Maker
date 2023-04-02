@@ -3,6 +3,8 @@
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -31,6 +33,14 @@ namespace PixelMaker
 
         private Editor _animatorEditor = null;
 
+        private AnimationBuffer _spritesBuffer = null;
+
+        private AnimationBuffer _normalsBuffer = null;
+
+        private bool _inBuildMode = false;
+
+        private bool _inPreviewAnimMode = false;
+
         #endregion Private members
 
         #region Implementation
@@ -44,6 +54,23 @@ namespace PixelMaker
         protected override void DrawEditors()
         {
             base.DrawEditors();
+
+            if (_inPreviewAnimMode)
+            {
+                EditorGUILayout.HelpBox("In Preview Animation Mode ... ", MessageType.Info);
+                if(GUILayout.Button("Stop Preview Animation"))
+                {
+                    _inPreviewAnimMode = false;
+                }
+                Repaint();
+                return;
+            }
+
+            if (_inBuildMode)
+            {
+                EditorGUILayout.HelpBox("In Build Mode ... ", MessageType.None);
+                return;
+            }
 
             if (_settings == null)
             {
@@ -98,7 +125,7 @@ namespace PixelMaker
                 { "Pixel Maker", _preview, EditorIcons.Play},
                 { "Configuration", _settings, EditorIcons.SettingsCog},
             };
-
+            
             return tree;
         }
 
@@ -115,6 +142,9 @@ namespace PixelMaker
             _animator = new PixelMakerAnimator();
             _previewEditor = Editor.CreateEditor(_settings.PreviewConfig);
             _animatorEditor = Editor.CreateEditor(_animator);
+            _spritesBuffer = new AnimationBuffer();
+            _normalsBuffer = new AnimationBuffer();
+            _inBuildMode = false;
         }
 
         private void LoadStudioScene()
@@ -139,12 +169,6 @@ namespace PixelMaker
 
         private void ControllerGUI()
         {
-            if (_animation != null
-                && GUILayout.Button("Play Animation Frame"))
-            {
-                _controller.SetAnimationAtFrame(_animation, _settings.PreviewConfig.Clip, _animator.AnimationFrame);
-            }
-
             if (GUILayout.Button("Update Model and AnimationClip"))
             {
                 var clip = _settings.PreviewConfig.Clip;
@@ -155,10 +179,129 @@ namespace PixelMaker
                 _animation = animation;
             }
 
-            if (_preview != null && GUILayout.Button("Apply Material"))
+            if (_preview != null
+                && GUILayout.Button("Apply Material"))
             {
                 _preview.UpdateTextureMaterial(_settings);
             }
+
+            if (_preview != null
+                && _animation != null
+                && GUILayout.Button("Build Spritesheet"))
+            {
+                _controller.StartCoroutine(Build());
+            }
+
+            if (_preview != null
+                && _animation != null
+                && GUILayout.Button("Preview Animation"))
+            {
+                _controller.StartCoroutine(PreviewAnim());
+            }
+
+            if (_preview != null
+                && _animation != null
+                && GUILayout.Button("Dump/Save Spritesheet"))
+            {
+                _controller.StartCoroutine(Dump());
+            }
+        }
+
+        private IEnumerator Build(bool normal = true)
+        {
+            _inBuildMode = true;
+
+            int frames = Mathf.RoundToInt(_settings.PreviewConfig.Clip.GetFrames());
+            _spritesBuffer.Clear();
+            _normalsBuffer.Clear();
+
+            _preview.ClearTextures();
+
+            for (int i = 0, length = frames; i <= length; i++)
+            {
+                _controller.SetAnimationAtFrame(_animation, _settings.PreviewConfig.Clip, i);
+                yield return null;
+
+                _preview.UpdatePreviews(_controller, _settings, _camera);
+                _preview.UpdateTextureMaterial(_settings);
+
+                if (_preview.TryGetRenderFrame(out var finalRender))
+                {
+                    _spritesBuffer.AddBuffer(finalRender);
+                }
+
+                if (_preview.TryGetNormalFrame(out var normalRender))
+                {
+                    _normalsBuffer.AddBuffer(normalRender);
+                }
+            }
+
+            _inBuildMode = false;
+        }
+
+        private IEnumerator Dump()
+        {
+            yield return Build();
+
+            int scale = _settings.PreviewConfig.RenderScale * 2;
+
+            string prefix = _settings.PreviewConfig.Prefix;
+
+            int columns = _settings.PreviewConfig.SpriteSheetColumns;
+            int rows = Mathf.RoundToInt((float)_spritesBuffer.Length / (float)columns);
+
+            if (_settings.PreviewConfig.SingleRow)
+            {
+                columns = _spritesBuffer.Length;
+                rows = 1;
+            }
+
+            _spritesBuffer.GetSpriteSheet(out var albedo, new Color(0,0,0,0), scale, scale, FilterMode.Point, rows, columns);
+            _normalsBuffer.GetSpriteSheet(out var normal, new Color(0.5f, 0.5f, 1f, 1f), scale, scale, FilterMode.Point, rows, columns);
+
+            DumpSpriteSheet(albedo, $"albedo{prefix}");
+            DumpSpriteSheet(normal, $"normal{prefix}");
+        }
+
+        private IEnumerator PreviewAnim()
+        {
+            yield return Build();
+
+            _inPreviewAnimMode = true;
+
+            var sprites = new List<Texture2D>();
+            _spritesBuffer.FillTextures(sprites);
+
+            while (_inPreviewAnimMode)
+            {
+                foreach (var sprite in sprites)
+                {
+                    if (!_inPreviewAnimMode)
+                    {
+                        continue;
+                    }
+
+                    _preview.PreviewTexture(sprite);
+                    yield return new WaitForSecondsRealtime(0.04f);
+                }
+            }
+
+            _preview.PreviewTexture(null);
+        }
+
+        private void DumpSpriteSheet(Texture2D spritesheet, string prefix)
+        {
+            byte[] bytes = spritesheet.EncodeToPNG();
+
+            string name = _settings.PreviewConfig.Clip.name;
+            name = name.Replace(" ", "_").Replace("|", "_");
+
+            string fileName = $"Spritesheet_{prefix}_[{name}].png";
+
+            string directory = _settings.PreviewConfig.DumpDirectory + "/" + fileName;
+            System.IO.File.WriteAllBytes(directory, bytes);
+
+            Debug.Log($"Dump of {fileName} \nDirectory : {directory}");
         }
 
         #endregion Private methods

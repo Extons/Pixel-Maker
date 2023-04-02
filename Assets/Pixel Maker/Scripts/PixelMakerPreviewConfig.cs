@@ -129,6 +129,24 @@ namespace PixelMaker
         [SerializeField, Required]
         private float _cameraScale = default;
 
+        [BoxGroup("Dump Settings")]
+        [SerializeField, Required]
+        private bool _singleRow = true;
+
+        [BoxGroup("Dump Settings")]
+        [SerializeField, Required]
+        [HideIf(nameof(_singleRow))]
+        private int _spriteSheetColumns = default;
+
+        [BoxGroup("Dump Settings")]
+        [SerializeField]
+        private string _prefix = default;
+
+        [BoxGroup("Dump Settings")]
+        [SerializeField]
+        [FolderPath(AbsolutePath = true)]
+        private string _dumpDirectory = default;
+
         #endregion Serialized members
 
         #region Public members
@@ -159,6 +177,10 @@ namespace PixelMaker
 
         public AnimationClip Clip => _clip;
 
+        public bool SingleRow => _singleRow;
+
+        public int SpriteSheetColumns => _spriteSheetColumns;
+
         public float ModelPositionX => _modelPositionX;
 
         public float ModelPositionY => _modelPositionY;
@@ -179,13 +201,18 @@ namespace PixelMaker
 
         public float CameraScale => _cameraScale;
 
+        public string Prefix => _prefix;
+
+        public string DumpDirectory => _dumpDirectory;
+
         #endregion Public members
 
         #region Private methods
 
-        private List<AnimationClip> GetAnimationClips()
+
+        private IEnumerable<AnimationClip> GetAnimationClipsFromModels()
         {
-            List<AnimationClip> clips = new List<AnimationClip>();
+            List<AnimationClip> animationClips = new List<AnimationClip>();
 
             var guids = AssetDatabase.FindAssets("t:animation");
             foreach (var guid in guids)
@@ -195,18 +222,11 @@ namespace PixelMaker
 
                 if (animClip != null)
                 {
-                    clips.Add(animClip);
+                    animationClips.Add(animClip);
                 }
             }
 
-            return clips;
-        }
-
-        private IEnumerable<AnimationClip> GetAnimationClipsFromModels()
-        {
-            List<AnimationClip> animationClips = GetAnimationClips();
-
-            var guids = AssetDatabase.FindAssets("t:model");
+            guids = AssetDatabase.FindAssets("t:model");
             foreach (var guid in guids)
             {
                 var path = AssetDatabase.GUIDToAssetPath(guid);

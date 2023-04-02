@@ -1,5 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace PixelMaker
@@ -17,10 +18,6 @@ namespace PixelMaker
         private GameObject _model = null;
 
         #endregion Private members
-
-        private void Update()
-        {
-        }
 
         #region API
 

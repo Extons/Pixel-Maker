@@ -1,0 +1,2054 @@
+fileFormatVersion: 2
+guid: fd86017ffbdf3e3489ed73d105e09148
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4023361060364786995
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_0
+  - first:
+      213: -4694488682278581430
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_1
+  - first:
+      213: 7379297171986755794
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_2
+  - first:
+      213: 1114717859749979264
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_3
+  - first:
+      213: -2200222230706166152
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_4
+  - first:
+      213: 630513974337776790
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_5
+  - first:
+      213: -2014119535874156651
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_6
+  - first:
+      213: -8480706638865029815
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_7
+  - first:
+      213: 2396035793033330979
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_8
+  - first:
+      213: -104222837507721914
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_9
+  - first:
+      213: -1772028927146481979
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_10
+  - first:
+      213: -781646928025404351
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_11
+  - first:
+      213: 921829229818082376
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_12
+  - first:
+      213: -3965013605071452650
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_13
+  - first:
+      213: 8038241234371528623
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_14
+  - first:
+      213: -3679123823332284120
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_15
+  - first:
+      213: 8255247757879244176
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_16
+  - first:
+      213: 1372540945634465099
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_17
+  - first:
+      213: 3352753542661844315
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_18
+  - first:
+      213: -2186103059572654281
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_19
+  - first:
+      213: 1407022441425135238
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_20
+  - first:
+      213: -4692760222185280824
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_21
+  - first:
+      213: 1591188401907764584
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_22
+  - first:
+      213: -5972416760422244768
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_23
+  - first:
+      213: 6054340495555541958
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_24
+  - first:
+      213: -6154554932309615353
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_25
+  - first:
+      213: 1345330143639687085
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_26
+  - first:
+      213: 6608446811155084517
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_27
+  - first:
+      213: 6009443454329722777
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_28
+  - first:
+      213: -7305578017446471216
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_29
+  - first:
+      213: 8436454411166463852
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_30
+  - first:
+      213: -2868371968385092231
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_31
+  - first:
+      213: 3329193692647463578
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_32
+  - first:
+      213: -8938877891919413573
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_33
+  - first:
+      213: 2432681097196331721
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_34
+  - first:
+      213: -1811571480305808882
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_35
+  - first:
+      213: 6217068431492273743
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_36
+  - first:
+      213: -180373791694160538
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_37
+  - first:
+      213: -5727414548283124620
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_38
+  - first:
+      213: 7683615929265090975
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_39
+  - first:
+      213: -3808483259991623729
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_40
+  - first:
+      213: 3218900176959128392
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_41
+  - first:
+      213: -7188610921349238692
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_42
+  - first:
+      213: 1554168928129620470
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_43
+  - first:
+      213: -8348725445083849046
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_44
+  - first:
+      213: 6002282126674282647
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_45
+  - first:
+      213: -240149345466919046
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_46
+  - first:
+      213: 4258465403898160710
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_47
+  - first:
+      213: -6547020835129025401
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_48
+  - first:
+      213: -8377634748088856546
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_49
+  - first:
+      213: -1248115052946655651
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_50
+  - first:
+      213: 7656751134265111189
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_51
+  - first:
+      213: 6781909072663960887
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_52
+  - first:
+      213: 7678118844691539649
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_53
+  - first:
+      213: -7664271434204843832
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_54
+  - first:
+      213: -1148328494817587468
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_55
+  - first:
+      213: -5448349728407003529
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_56
+  - first:
+      213: 5168317146968007072
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_57
+  - first:
+      213: 4093562225250361552
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_58
+  - first:
+      213: 8893168025246630158
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_59
+  - first:
+      213: 7378807220928000996
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_60
+  - first:
+      213: -2521491608420649625
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_61
+  - first:
+      213: 5079233772443945863
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_62
+  - first:
+      213: -2714100527913553343
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_63
+  - first:
+      213: 1940914509527355880
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_64
+  - first:
+      213: -8567097681689154893
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_65
+  - first:
+      213: 6543351100863294085
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_66
+  - first:
+      213: 6978788736626358337
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_67
+  - first:
+      213: 2571564013795486596
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_68
+  - first:
+      213: -7733800954122865407
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_69
+  - first:
+      213: 7662464633359529125
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_70
+  - first:
+      213: 7121466358487453888
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_71
+  - first:
+      213: -5871392158965729754
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_72
+  - first:
+      213: 1468824937517857606
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_73
+  - first:
+      213: -2199927807103859372
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_74
+  - first:
+      213: 8895886459373736424
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_75
+  - first:
+      213: 2630486372986766412
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_76
+  - first:
+      213: 7532235019324369998
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_77
+  - first:
+      213: -1733161679313331546
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_78
+  - first:
+      213: -2014781540162782464
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_79
+  - first:
+      213: -8684282291623364738
+    second: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_80
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc261d9ae662a28c0800000000000000
+      internalID: -4023361060364786995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b81ba7a63d9deb0800000000000000
+      internalID: -4694488682278581430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d0b0544ea7886660800000000000000
+      internalID: 7379297171986755794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0846e27ccf5487f00800000000000000
+      internalID: 1114717859749979264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_4
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87667d7d98d3771e0800000000000000
+      internalID: -2200222230706166152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_5
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ca25a7e1900c800800000000000000
+      internalID: 630513974337776790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_6
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 597db0114f86c04e0800000000000000
+      internalID: -2014119535874156651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_7
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9452722ae3a7e4a80800000000000000
+      internalID: -8480706638865029815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_8
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3218fd8ebdd604120800000000000000
+      internalID: 2396035793033330979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_9
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6457ed8a1e9bd8ef0800000000000000
+      internalID: -104222837507721914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_10
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c6a7b1541d7867e0800000000000000
+      internalID: -1772028927146481979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_11
+      rect:
+        serializedVersion: 2
+        x: 1650
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c3543a2480725f0800000000000000
+      internalID: -781646928025404351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_12
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844f0eaeccefacc00800000000000000
+      internalID: 921829229818082376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_13
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616002c322179f8c0800000000000000
+      internalID: -3965013605071452650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_14
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa7cc9170d19d8f60800000000000000
+      internalID: 8038241234371528623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_15
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8292a91206021fcc0800000000000000
+      internalID: -3679123823332284120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_16
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0957b3df818809270800000000000000
+      internalID: 8255247757879244176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_17
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b459830d7be3c0310800000000000000
+      internalID: 1372540945634465099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_18
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5daac9559f578e20800000000000000
+      internalID: 3352753542661844315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_19
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ff6cb89d669a1e0800000000000000
+      internalID: -2186103059572654281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_20
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 686e52ca47fb68310800000000000000
+      internalID: 1407022441425135238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_21
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca2094f077ffdeb0800000000000000
+      internalID: -4692760222185280824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_22
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86d0f6acb69051610800000000000000
+      internalID: 1591188401907764584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_23
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e51708996bd1da0800000000000000
+      internalID: -5972416760422244768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_24
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cbb9da7a96550450800000000000000
+      internalID: 6054340495555541958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_25
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d9e05b5e0a69aa0800000000000000
+      internalID: -6154554932309615353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_26
+      rect:
+        serializedVersion: 2
+        x: 3900
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dafc44543a29ba210800000000000000
+      internalID: 1345330143639687085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_27
+      rect:
+        serializedVersion: 2
+        x: 4050
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e436f79c5be5bb50800000000000000
+      internalID: 6608446811155084517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_28
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9979e197bf4d56350800000000000000
+      internalID: 6009443454329722777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_29
+      rect:
+        serializedVersion: 2
+        x: 4350
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d9533fef7f5d9a90800000000000000
+      internalID: -7305578017446471216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_30
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c67ba55b69e441570800000000000000
+      internalID: 8436454411166463852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_31
+      rect:
+        serializedVersion: 2
+        x: 4650
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 975f7bc54ee7138d0800000000000000
+      internalID: -2868371968385092231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_32
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a19be460ca33e20800000000000000
+      internalID: 3329193692647463578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_33
+      rect:
+        serializedVersion: 2
+        x: 4950
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbefc81eae9b2f380800000000000000
+      internalID: -8938877891919413573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_34
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c2e13aa19e92c120800000000000000
+      internalID: 2432681097196331721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_35
+      rect:
+        serializedVersion: 2
+        x: 5250
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0ac42736510cd6e0800000000000000
+      internalID: -1811571480305808882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_36
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f46546b8cc6774650800000000000000
+      internalID: 6217068431492273743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_37
+      rect:
+        serializedVersion: 2
+        x: 5550
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66d774bfdfe2f7df0800000000000000
+      internalID: -180373791694160538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_38
+      rect:
+        serializedVersion: 2
+        x: 5700
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4741e2040d22480b0800000000000000
+      internalID: -5727414548283124620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_39
+      rect:
+        serializedVersion: 2
+        x: 5850
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91f0666affa1aa60800000000000000
+      internalID: 7683615929265090975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_40
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc77d2b37ac852bc0800000000000000
+      internalID: -3808483259991623729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_41
+      rect:
+        serializedVersion: 2
+        x: 6150
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 843471f08a4dbac20800000000000000
+      internalID: 3218900176959128392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_42
+      rect:
+        serializedVersion: 2
+        x: 6300
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c503c74347cec3c90800000000000000
+      internalID: -7188610921349238692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_43
+      rect:
+        serializedVersion: 2
+        x: 6450
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f99d12e764819510800000000000000
+      internalID: 1554168928129620470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_44
+      rect:
+        serializedVersion: 2
+        x: 6600
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aae138ee07e532c80800000000000000
+      internalID: -8348725445083849046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_45
+      rect:
+        serializedVersion: 2
+        x: 6750
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 798c812fac36c4350800000000000000
+      internalID: 6002282126674282647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_46
+      rect:
+        serializedVersion: 2
+        x: 6900
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a77d6625171daacf0800000000000000
+      internalID: -240149345466919046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_47
+      rect:
+        serializedVersion: 2
+        x: 7050
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 646e3a7f8bb191b30800000000000000
+      internalID: 4258465403898160710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_48
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c9d01fc3f4425a0800000000000000
+      internalID: -6547020835129025401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_49
+      rect:
+        serializedVersion: 2
+        x: 7350
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e10d13e4599acbb80800000000000000
+      internalID: -8377634748088856546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_50
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d56fb4ed8fdcdaee0800000000000000
+      internalID: -1248115052946655651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_51
+      rect:
+        serializedVersion: 2
+        x: 7650
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 592f073e69e324a60800000000000000
+      internalID: 7656751134265111189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_52
+      rect:
+        serializedVersion: 2
+        x: 7800
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73d52279e5e2e1e50800000000000000
+      internalID: 6781909072663960887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_53
+      rect:
+        serializedVersion: 2
+        x: 7950
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c66219a8682e8a60800000000000000
+      internalID: 7678118844691539649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_54
+      rect:
+        serializedVersion: 2
+        x: 8100
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0fb06dcb903a590800000000000000
+      internalID: -7664271434204843832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_55
+      rect:
+        serializedVersion: 2
+        x: 8250
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe40fc61515010f0800000000000000
+      internalID: -1148328494817587468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_56
+      rect:
+        serializedVersion: 2
+        x: 8400
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e5432e9c29364b0800000000000000
+      internalID: -5448349728407003529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_57
+      rect:
+        serializedVersion: 2
+        x: 8550
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a1a69fef0d89b740800000000000000
+      internalID: 5168317146968007072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_58
+      rect:
+        serializedVersion: 2
+        x: 8700
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d0610eb7214fc830800000000000000
+      internalID: 4093562225250361552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_59
+      rect:
+        serializedVersion: 2
+        x: 8850
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0100b07331ea6b70800000000000000
+      internalID: 8893168025246630158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_60
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e33085a21ac66660800000000000000
+      internalID: 7378807220928000996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_61
+      rect:
+        serializedVersion: 2
+        x: 9150
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76575f7ddbcd10dd0800000000000000
+      internalID: -2521491608420649625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_62
+      rect:
+        serializedVersion: 2
+        x: 9300
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b40b184301d7640800000000000000
+      internalID: 5079233772443945863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_63
+      rect:
+        serializedVersion: 2
+        x: 9450
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142330523f3955ad0800000000000000
+      internalID: -2714100527913553343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_64
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e197c786738fea10800000000000000
+      internalID: 1940914509527355880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_65
+      rect:
+        serializedVersion: 2
+        x: 9750
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba68d68c0e8b1980800000000000000
+      internalID: -8567097681689154893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_66
+      rect:
+        serializedVersion: 2
+        x: 9900
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a2e977827aeca50800000000000000
+      internalID: 6543351100863294085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_67
+      rect:
+        serializedVersion: 2
+        x: 10050
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1487c197163a9d060800000000000000
+      internalID: 6978788736626358337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_68
+      rect:
+        serializedVersion: 2
+        x: 10200
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48b257788d700b320800000000000000
+      internalID: 2571564013795486596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_69
+      rect:
+        serializedVersion: 2
+        x: 10350
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105fde5f1050ca490800000000000000
+      internalID: -7733800954122865407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_70
+      rect:
+        serializedVersion: 2
+        x: 10500
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a4736f8cfa865a60800000000000000
+      internalID: 7662464633359529125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_71
+      rect:
+        serializedVersion: 2
+        x: 10650
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c01a810ce784d260800000000000000
+      internalID: 7121466358487453888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_72
+      rect:
+        serializedVersion: 2
+        x: 10800
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62675db70ff948ea0800000000000000
+      internalID: -5871392158965729754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_73
+      rect:
+        serializedVersion: 2
+        x: 10950
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64bbcfd9f70526410800000000000000
+      internalID: 1468824937517857606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_74
+      rect:
+        serializedVersion: 2
+        x: 11100
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 455021ea0594871e0800000000000000
+      internalID: -2199927807103859372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_75
+      rect:
+        serializedVersion: 2
+        x: 11250
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e1dd253a99847b70800000000000000
+      internalID: 8895886459373736424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_76
+      rect:
+        serializedVersion: 2
+        x: 11400
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44c1685b6d518420800000000000000
+      internalID: 2630486372986766412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_77
+      rect:
+        serializedVersion: 2
+        x: 11550
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4c2693b7dfd78860800000000000000
+      internalID: 7532235019324369998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_78
+      rect:
+        serializedVersion: 2
+        x: 11700
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa9536a2a292f7e0800000000000000
+      internalID: -1733161679313331546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_79
+      rect:
+        serializedVersion: 2
+        x: 11850
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00b359e2dde0a04e0800000000000000
+      internalID: -2014781540162782464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_albedo_noGun_[RobotArmature_Robot_Idle]_80
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e77f29e544b3b7780800000000000000
+      internalID: -8684282291623364738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8f2b199a244749e4d80db37ecefb2fab
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 706a572811bf71f4ba8ddc20385491df, type: 3}
+      name: Normal
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

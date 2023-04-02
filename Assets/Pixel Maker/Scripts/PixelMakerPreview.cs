@@ -13,6 +13,7 @@ namespace PixelMaker
         [TexturePreview(256, 256, FilterMode.Bilinear)]
         [SerializeField]
         [ReadOnly, HideLabel]
+        //[HideIf(nameof(_inAnimPreview))]
         private Texture2D _source = null;
 
         [VerticalGroup("Split/Source")]
@@ -24,6 +25,7 @@ namespace PixelMaker
         [TexturePreview(256, 256, FilterMode.Point)]
         [SerializeField]
         [ReadOnly, HideLabel]
+        //[HideIf(nameof(_inAnimPreview))]
         private Texture2D _destination = null;
 
         [VerticalGroup("Split/Destination")]
@@ -35,6 +37,7 @@ namespace PixelMaker
         [TexturePreview(256, 256, FilterMode.Point)]
         [ShowInInspector]
         [ReadOnly, HideLabel]
+        //[HideIf(nameof(_inAnimPreview))]
         private Texture2D _normal = null;
 
         [VerticalGroup("Split/Normal")]
@@ -46,6 +49,7 @@ namespace PixelMaker
         [TexturePreview(256, 256, FilterMode.Point, false)]
         [ShowInInspector]
         [ReadOnly, HideLabel]
+        //[HideIf(nameof(_inAnimPreview))]
         private Texture2D _final = null;
 
         [VerticalGroup("Split/Final")]
@@ -53,9 +57,36 @@ namespace PixelMaker
         [DisplayAsString, HideLabel]
         private string _finalDisplay = "120x120";
 
+        [HorizontalGroup("Preview")]
+        [VerticalGroup("Preview/Large")]
+        [TexturePreview(512, 512, FilterMode.Point, false)]
+        [ShowInInspector]
+        [ReadOnly, HideLabel]
+        [ShowIf(nameof(_inAnimPreview))]
+        private Texture2D _previewAnimLarge = null;
+
+        [HorizontalGroup("Preview")]
+        [VerticalGroup("Preview/Medium")]
+        [TexturePreview(256, 256, FilterMode.Point, false)]
+        [ShowInInspector]
+        [ReadOnly, HideLabel]
+        [ShowIf(nameof(_inAnimPreview))]
+        private Texture2D _previewAnimMedium = null;
+
+        [HorizontalGroup("Preview")]
+        [VerticalGroup("Preview/Small")]
+        [TexturePreview(128, 128, FilterMode.Point, false)]
+        [ShowInInspector]
+        [ReadOnly, HideLabel]
+        [ShowIf(nameof(_inAnimPreview))]
+        private Texture2D _previewAnimSmall = null;
+
         #endregion Serialized members
 
         private int _index = 0;
+
+        private bool _inAnimPreview = default;
+
         #region API
 
         public void UpdatePreviews(PixelMakerController controller, PixelMakerSettings settings, Camera camera)
@@ -85,7 +116,7 @@ namespace PixelMaker
             UpdateCamera(camera, settings);
         }
 
-        internal void UpdateTextureMaterial(PixelMakerSettings settings)
+        public void UpdateTextureMaterial(PixelMakerSettings settings)
         {
             var renderTemp = RenderTexture.GetTemporary(settings.Destination.width, settings.Destination.height, 24);
             renderTemp.filterMode = FilterMode.Point;
@@ -93,6 +124,46 @@ namespace PixelMaker
             Graphics.Blit(settings.Destination, renderTemp, settings.BitColorMaterial);
             _final = renderTemp.ToTexture2D(FilterMode.Point);
             RenderTexture.ReleaseTemporary(renderTemp);
+        }
+
+        public void ClearTextures() 
+        {
+            _normal = null;
+            _final = null; 
+        }
+
+        public bool TryGetRenderFrame(out Texture2D destination)
+        {
+            if (_destination != null)
+            {
+                destination = _final;
+                return true;
+            }
+
+            destination = null;
+            return false;
+        }
+
+        public bool TryGetNormalFrame(out Texture2D normal)
+        {
+            if(_normal != null)
+            {
+                normal = _normal;
+
+                return true;
+            }
+
+            normal = null;
+            return false;
+        }
+
+        public void PreviewTexture(Texture2D texture)
+        {
+            _inAnimPreview = (texture != null);
+
+            _previewAnimLarge = texture;
+            _previewAnimMedium = texture;
+            _previewAnimSmall = texture;
         }
 
         #endregion API
@@ -158,10 +229,12 @@ namespace PixelMaker
         private void UpdateCamera(Camera camera, PixelMakerSettings settings)
         {
             camera.orthographicSize = settings.PreviewConfig.CameraScale;
-            camera.transform.localPosition = new Vector3(
+            camera.transform.localPosition = 
+                new Vector3(
                 settings.PreviewConfig.CameraPositionX,
                 settings.PreviewConfig.CameraPositionY,
-                camera.transform.localPosition.z);
+                camera.transform.localPosition.z
+                );
         }
 
         private void UpdateModelTransform(PixelMakerController controller, PixelMakerSettings settings)
@@ -175,6 +248,12 @@ namespace PixelMaker
 
         private void UpdateMaterial(PixelMakerSettings settings)
         {
+            if(settings.PreviewConfig == null
+                || settings.PreviewConfig.Palette == null)
+            {
+                return;
+            }
+
             settings.BitColorMaterial.SetTexture("_PaletteTex", settings.PreviewConfig.Palette.toTexture());
             settings.BitColorMaterial.SetColor("_OutlineColor", settings.PreviewConfig.OutlineColor);
             settings.BitColorMaterial.SetFloat("_OutlineWidth", settings.PreviewConfig.OutlineWidth);

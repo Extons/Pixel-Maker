@@ -20,4 +20,4 @@ MonoBehaviour:
   _renderTextureFormat: 0
   _normalShader: {fileID: 4800000, guid: 558ddf48401ae1749b63f44ac6717315, type: 3}
   _bitColorMaterial: {fileID: 2100000, guid: 4bd4d2792f82e564697d47815c3bda9a, type: 2}
-  _previewConfig: {fileID: 11400000, guid: c613f5acf2f635840adade20d4e0b099, type: 2}
+  _previewConfig: {fileID: 11400000, guid: 0f4eed4f4673945459df038c57ede332, type: 2}

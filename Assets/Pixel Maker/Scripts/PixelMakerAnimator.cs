@@ -14,7 +14,7 @@ namespace PixelMaker
 
         [BoxGroup("Preview Animation")]
         [SerializeField]
-        private bool _autoUpdate = false;
+        private bool _autoUpdate = true;
 
         #endregion Serialized members
 
