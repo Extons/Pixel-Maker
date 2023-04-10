@@ -135,6 +135,11 @@ namespace PixelMaker
 
         [BoxGroup("Dump Settings")]
         [SerializeField, Required]
+        [Range(0f, 1f)]
+        private float _animationReduice = default;
+
+        [BoxGroup("Dump Settings")]
+        [SerializeField, Required]
         [HideIf(nameof(_singleRow))]
         private int _spriteSheetColumns = default;
 
@@ -180,6 +185,8 @@ namespace PixelMaker
         public bool SingleRow => _singleRow;
 
         public int SpriteSheetColumns => _spriteSheetColumns;
+
+        public float AnimationReduice => _animationReduice;
 
         public float ModelPositionX => _modelPositionX;
 
@@ -232,10 +239,10 @@ namespace PixelMaker
                 var path = AssetDatabase.GUIDToAssetPath(guid);
                 var subObjects = AssetDatabase.LoadAllAssetsAtPath(path);
 
-                foreach(var subObject in subObjects)
+                foreach (var subObject in subObjects)
                 {
                     var clip = subObject as AnimationClip;
-                    if(clip != null
+                    if (clip != null
                         && !animationClips.Contains(clip))
                     {
                         animationClips.Add(clip);

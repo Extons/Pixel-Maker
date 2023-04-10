@@ -29,17 +29,45 @@ namespace PixelMaker
         public void AddBuffer(Texture2D texture)
         {
             Buffer.Add(texture);
-        } 
-        
+        }
+
+        public void Reduice(float ratio)
+        {
+            if(ratio <= 0)
+            {
+                return;
+            }
+
+            var frames = Length / ratio;
+            var frameRemove = Length % frames;
+
+            var removed = new List<Texture2D>();
+
+            for (int i = 1; i < Length - 1; i++)
+            {
+                if (i % 2 == 0
+                    && frameRemove > 0)
+                {
+                    removed.Add(_buffer[i]);
+                    frameRemove--;
+                }
+            }
+
+            foreach (var frame in removed)
+            {
+                _buffer.Remove(frame);
+            }
+        }
+
         public void GetSpriteSheet(out Texture2D sheet, Color background, int width, int height, FilterMode filterMode, int rows, int columns)
         {
             int index = 0;
             sheet = new Texture2D(width * columns, height * rows);
             sheet.filterMode = filterMode;
 
-            for(int x = 0; x < sheet.width; x++)
+            for (int x = 0; x < sheet.width; x++)
             {
-                for(int y = 0; y < sheet.height; y++)
+                for (int y = 0; y < sheet.height; y++)
                 {
                     sheet.SetPixel(x, y, background);
                 }

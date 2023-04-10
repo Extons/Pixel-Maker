@@ -58,7 +58,7 @@ namespace PixelMaker
             if (_inPreviewAnimMode)
             {
                 EditorGUILayout.HelpBox("In Preview Animation Mode ... ", MessageType.Info);
-                if(GUILayout.Button("Stop Preview Animation"))
+                if (GUILayout.Button("Stop Preview Animation"))
                 {
                     _inPreviewAnimMode = false;
                 }
@@ -125,7 +125,7 @@ namespace PixelMaker
                 { "Pixel Maker", _preview, EditorIcons.Play},
                 { "Configuration", _settings, EditorIcons.SettingsCog},
             };
-            
+
             return tree;
         }
 
@@ -250,13 +250,16 @@ namespace PixelMaker
             int columns = _settings.PreviewConfig.SpriteSheetColumns;
             int rows = Mathf.RoundToInt((float)_spritesBuffer.Length / (float)columns);
 
+            _spritesBuffer.Reduice(_settings.PreviewConfig.AnimationReduice);
+            _normalsBuffer.Reduice(_settings.PreviewConfig.AnimationReduice);
+            
             if (_settings.PreviewConfig.SingleRow)
             {
                 columns = _spritesBuffer.Length;
                 rows = 1;
             }
 
-            _spritesBuffer.GetSpriteSheet(out var albedo, new Color(0,0,0,0), scale, scale, FilterMode.Point, rows, columns);
+            _spritesBuffer.GetSpriteSheet(out var albedo, new Color(0, 0, 0, 0), scale, scale, FilterMode.Point, rows, columns);
             _normalsBuffer.GetSpriteSheet(out var normal, new Color(0.5f, 0.5f, 1f, 1f), scale, scale, FilterMode.Point, rows, columns);
 
             DumpSpriteSheet(albedo, $"albedo{prefix}");
@@ -270,6 +273,7 @@ namespace PixelMaker
             _inPreviewAnimMode = true;
 
             var sprites = new List<Texture2D>();
+            _spritesBuffer.Reduice(_settings.PreviewConfig.AnimationReduice);
             _spritesBuffer.FillTextures(sprites);
 
             while (_inPreviewAnimMode)

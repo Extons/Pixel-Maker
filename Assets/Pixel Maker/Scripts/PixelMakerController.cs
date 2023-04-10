@@ -7,12 +7,6 @@ namespace PixelMaker
 {
     public class PixelMakerController : MonoBehaviour
     {
-        [SerializeField, Required]
-        private PixelMakerSettings _settings = null;
-
-        [SerializeField, Required]
-        private Texture2D _texture;
-
         #region Private members
 
         private GameObject _model = null;

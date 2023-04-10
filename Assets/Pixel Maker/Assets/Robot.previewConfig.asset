@@ -15,8 +15,8 @@ MonoBehaviour:
   _sourceRenderScale: 250
   _renderScale: 75
   _background: {r: 0, g: 0, b: 0, a: 0}
-  _usePalette: 0
-  _convertToBit: 0
+  _usePalette: 1
+  _convertToBit: 1
   _palette: {fileID: 11400000, guid: 86daf398766b93943905b005583ad487, type: 2}
   _outlineColor: {r: 0, g: 0, b: 0, a: 1}
   _outlineWidth: 1
@@ -36,6 +36,7 @@ MonoBehaviour:
   _cameraPositionY: 0
   _cameraScale: 5
   _singleRow: 1
+  _animationReduice: 0
   _spriteSheetColumns: 0
-  _prefix: _noGun
+  _prefix: _noGun_
   _dumpDirectory: C:/Users/Lyncis/Documents/GitHub/Pixel-Maker/Assets/Pixel Maker/Assets/Spritesheets/Robot

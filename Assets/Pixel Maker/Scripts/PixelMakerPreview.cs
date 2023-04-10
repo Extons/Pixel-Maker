@@ -13,7 +13,6 @@ namespace PixelMaker
         [TexturePreview(256, 256, FilterMode.Bilinear)]
         [SerializeField]
         [ReadOnly, HideLabel]
-        //[HideIf(nameof(_inAnimPreview))]
         private Texture2D _source = null;
 
         [VerticalGroup("Split/Source")]
@@ -25,7 +24,6 @@ namespace PixelMaker
         [TexturePreview(256, 256, FilterMode.Point)]
         [SerializeField]
         [ReadOnly, HideLabel]
-        //[HideIf(nameof(_inAnimPreview))]
         private Texture2D _destination = null;
 
         [VerticalGroup("Split/Destination")]
@@ -37,7 +35,6 @@ namespace PixelMaker
         [TexturePreview(256, 256, FilterMode.Point)]
         [ShowInInspector]
         [ReadOnly, HideLabel]
-        //[HideIf(nameof(_inAnimPreview))]
         private Texture2D _normal = null;
 
         [VerticalGroup("Split/Normal")]
@@ -49,7 +46,6 @@ namespace PixelMaker
         [TexturePreview(256, 256, FilterMode.Point, false)]
         [ShowInInspector]
         [ReadOnly, HideLabel]
-        //[HideIf(nameof(_inAnimPreview))]
         private Texture2D _final = null;
 
         [VerticalGroup("Split/Final")]
@@ -83,9 +79,11 @@ namespace PixelMaker
 
         #endregion Serialized members
 
-        private int _index = 0;
+        #region Private members
 
         private bool _inAnimPreview = default;
+
+        #endregion Private members
 
         #region API
 

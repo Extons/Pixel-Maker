@@ -32,13 +32,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Bit: 0
+    - _Bit: 1
     - _BitValue: 128
     - _Contrast: 1
     - _Offset: 120
     - _OutlineThickness: 0.0316
     - _OutlineWidth: 1
-    - _Palette: 0
+    - _Palette: 1
     - _Saturation: 0
     m_Colors:
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
