@@ -19,7 +19,9 @@ namespace PixelMaker
 
         private PixelMakerSettings _settings = null;
 
-        private Camera _camera = null;
+        private Camera _sourceCamera = null;
+
+        private Camera _normalCamera = null;
 
         private PixelMakerController _controller = null;
 
@@ -98,7 +100,7 @@ namespace PixelMaker
             }
             else
             {
-                _preview.UpdatePreviews(_controller, _settings, _camera);
+                _preview.UpdatePreviews(_controller, _settings, _sourceCamera, _normalCamera);
                 _animator.UpdateAnimator(_controller, _animation, _settings.PreviewConfig.Clip);
             }
 
@@ -137,7 +139,6 @@ namespace PixelMaker
         {
             _settings = AssetDatabase.LoadAssetAtPath<PixelMakerSettings>("Assets/Pixel Maker/Pixel Maker.config.asset");
             _controller = FindObjectOfType<PixelMakerController>();
-            _camera = FindObjectOfType<Camera>();
             _preview = new PixelMakerPreview();
             _animator = new PixelMakerAnimator();
             _previewEditor = Editor.CreateEditor(_settings.PreviewConfig);
@@ -145,6 +146,19 @@ namespace PixelMaker
             _spritesBuffer = new AnimationBuffer();
             _normalsBuffer = new AnimationBuffer();
             _inBuildMode = false;
+
+            var allCamera = FindObjectsOfType<Camera>();
+            foreach(Camera camera in allCamera)
+            {
+                if(camera.gameObject.tag == "Source Camera")
+                {
+                    _sourceCamera = camera;
+                }
+                else if(camera.gameObject.tag == "Normal Camera")
+                {
+                    _normalCamera = camera;
+                }
+            }
         }
 
         private void LoadStudioScene()
@@ -222,7 +236,7 @@ namespace PixelMaker
                 _controller.SetAnimationAtFrame(_animation, _settings.PreviewConfig.Clip, i);
                 yield return null;
 
-                _preview.UpdatePreviews(_controller, _settings, _camera);
+                _preview.UpdatePreviews(_controller, _settings, _sourceCamera, _normalCamera);
                 _preview.UpdateTextureMaterial(_settings);
 
                 if (_preview.TryGetRenderFrame(out var finalRender))
@@ -306,6 +320,8 @@ namespace PixelMaker
             System.IO.File.WriteAllBytes(directory, bytes);
 
             Debug.Log($"Dump of {fileName} \nDirectory : {directory}");
+
+            AssetDatabase.Refresh();
         }
 
         #endregion Private methods

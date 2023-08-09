@@ -1,16 +1,23 @@
 ﻿using Sirenix.OdinInspector;
-using System;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 namespace PixelMaker
 {
     public class PixelMakerPreview
     {
+        #region Constants members
+
+        private const int _previewSize = 128 * 3;
+
+        #endregion Constants members
+
         #region Serialized members
 
         [HorizontalGroup("Split")]
         [VerticalGroup("Split/Source")]
-        [TexturePreview(256, 256, FilterMode.Bilinear)]
+        [TexturePreview(_previewSize, _previewSize, FilterMode.Bilinear)]
         [SerializeField]
         [ReadOnly, HideLabel]
         private Texture2D _source = null;
@@ -21,7 +28,7 @@ namespace PixelMaker
         private string _srcDisplay = "120x120";
 
         [VerticalGroup("Split/Destination")]
-        [TexturePreview(256, 256, FilterMode.Point)]
+        [TexturePreview(_previewSize, _previewSize, FilterMode.Point)]
         [SerializeField]
         [ReadOnly, HideLabel]
         private Texture2D _destination = null;
@@ -32,7 +39,7 @@ namespace PixelMaker
         private string _destDisplay = "120x120";
 
         [VerticalGroup("Split/Normal")]
-        [TexturePreview(256, 256, FilterMode.Point)]
+        [TexturePreview(_previewSize, _previewSize, FilterMode.Point)]
         [ShowInInspector]
         [ReadOnly, HideLabel]
         private Texture2D _normal = null;
@@ -43,7 +50,7 @@ namespace PixelMaker
         private string _nrmDisplay = "120x120";
 
         [VerticalGroup("Split/Final")]
-        [TexturePreview(256, 256, FilterMode.Point, false)]
+        [TexturePreview(_previewSize, _previewSize, FilterMode.Point, false)]
         [ShowInInspector]
         [ReadOnly, HideLabel]
         private Texture2D _final = null;
@@ -87,47 +94,79 @@ namespace PixelMaker
 
         #region API
 
-        public void UpdatePreviews(PixelMakerController controller, PixelMakerSettings settings, Camera camera)
+        public void UpdatePreviews(PixelMakerController controller, PixelMakerSettings settings, Camera sourceCamera, Camera normalCamera)
         {
             UpdateRenderScale(settings);
-            ResetCamera(camera);
+            //ResetCamera(camera);
 
-            if (TryDrawPreview(settings.Source, camera, FilterMode.Bilinear, out var sourceTex))
+            //if (TryDrawPreview(settings.Source, camera, FilterMode.Bilinear, out var sourceTex))
+            if (TryDrawPreview(settings.Source, sourceCamera, FilterMode.Bilinear, TextureFormat.RGBA32, out var sourceTex))
             {
                 _source = sourceTex;
+                if (GUILayout.Button("Drop Source Texture2D"))
+                {
+                    var folder = "Assets/DEBUG/";
+                    if (!System.IO.Directory.Exists(folder))
+                    {
+                        System.IO.Directory.CreateDirectory(folder);
+                    }
+
+                    string fileName = $"Source_{System.DateTime.Now:yyyyMMddHHmmss}.png";
+                    string filePath = System.IO.Path.Combine(folder, fileName);
+
+                    File.WriteAllBytes(filePath, sourceTex.EncodeToPNG());
+                    AssetDatabase.Refresh();
+                }
             }
 
-            if (TryDrawPreview(settings.Destination, camera, FilterMode.Point, out var destinationTex, null, settings.PreviewConfig.Background))
+            //if (TryDrawPreview(settings.Destination, camera, FilterMode.Point, out var destinationTex, null, settings.PreviewConfig.Background))
+            if (TryDrawPreview(settings.Destination, sourceCamera, FilterMode.Point, TextureFormat.RGBA32, out var destinationTex))
             {
                 _destination = destinationTex;
             }
 
             var normalBackground = new Color(0.5f, 0.5f, 1f, 1f);
-            if (TryDrawPreview(settings.Normal, camera, FilterMode.Point, out var normalTex, settings.NormalShader, normalBackground))
+            //if (TryDrawPreview(settings.Normal, camera, FilterMode.Point, out var normalTex, settings.NormalShader, normalBackground))
+            if (TryDrawPreview(settings.Normal, normalCamera, FilterMode.Point, TextureFormat.RGB24, out var normalTex))
             {
                 _normal = normalTex;
+
+                if (GUILayout.Button("Drop Normal Texture2D"))
+                {
+                    var folder = "Assets/DEBUG/";
+                    if (!System.IO.Directory.Exists(folder))
+                    {
+                        System.IO.Directory.CreateDirectory(folder);
+                    }
+
+                    string fileName = $"Normal_{System.DateTime.Now:yyyyMMddHHmmss}.png";
+                    string filePath = System.IO.Path.Combine(folder, fileName);
+
+                    File.WriteAllBytes(filePath, normalTex.EncodeToPNG());
+                    AssetDatabase.Refresh();
+                }
             }
 
             UpdateMaterial(settings);
 
             UpdateModelTransform(controller, settings);
-            UpdateCamera(camera, settings);
+            UpdateCamera(sourceCamera, settings);
         }
 
         public void UpdateTextureMaterial(PixelMakerSettings settings)
         {
-            var renderTemp = RenderTexture.GetTemporary(settings.Destination.width, settings.Destination.height, 24);
+            var renderTemp = RenderTexture.GetTemporary(settings.Destination.width, settings.Destination.height, 32);
             renderTemp.filterMode = FilterMode.Point;
 
             Graphics.Blit(settings.Destination, renderTemp, settings.BitColorMaterial);
-            _final = renderTemp.ToTexture2D(FilterMode.Point);
+            _final = renderTemp.ToTexture2D(FilterMode.Point, TextureFormat.RGBA32);
             RenderTexture.ReleaseTemporary(renderTemp);
         }
 
-        public void ClearTextures() 
+        public void ClearTextures()
         {
             _normal = null;
-            _final = null; 
+            _final = null;
         }
 
         public bool TryGetRenderFrame(out Texture2D destination)
@@ -144,10 +183,9 @@ namespace PixelMaker
 
         public bool TryGetNormalFrame(out Texture2D normal)
         {
-            if(_normal != null)
+            if (_normal != null)
             {
                 normal = _normal;
-
                 return true;
             }
 
@@ -184,7 +222,26 @@ namespace PixelMaker
                 camera.RenderWithShader(shader, "");
             }
 
-            texture = renderTexture.ToTexture2D(filterMode);
+            texture = renderTexture.ToTexture2D(filterMode, TextureFormat.RGBA32);
+            camera.targetTexture = null;
+
+            if (texture != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool TryDrawPreview(RenderTexture renderTexture, Camera camera, FilterMode filterMode, TextureFormat textureFormat, out Texture2D texture)
+        {
+            if (camera != null)
+            {
+                camera.targetTexture = renderTexture;
+                camera.Render();
+            }
+
+            texture = renderTexture.ToTexture2D(filterMode, textureFormat);
 
             if (texture != null)
             {
@@ -227,7 +284,7 @@ namespace PixelMaker
         private void UpdateCamera(Camera camera, PixelMakerSettings settings)
         {
             camera.orthographicSize = settings.PreviewConfig.CameraScale;
-            camera.transform.localPosition = 
+            camera.transform.localPosition =
                 new Vector3(
                 settings.PreviewConfig.CameraPositionX,
                 settings.PreviewConfig.CameraPositionY,
@@ -246,7 +303,7 @@ namespace PixelMaker
 
         private void UpdateMaterial(PixelMakerSettings settings)
         {
-            if(settings.PreviewConfig == null
+            if (settings.PreviewConfig == null
                 || settings.PreviewConfig.Palette == null)
             {
                 return;
