@@ -1,5 +1,4 @@
 ﻿using Sirenix.OdinInspector;
-using System;
 using UnityEngine;
 
 namespace PixelMaker
@@ -92,18 +91,18 @@ namespace PixelMaker
             UpdateRenderScale(settings);
             ResetCamera(camera);
 
-            if (TryDrawPreview(settings.Source, camera, FilterMode.Bilinear, out var sourceTex))
+            if (TryDrawPreview(settings.Source, camera, FilterMode.Bilinear, TextureFormat.RGBA32, out var sourceTex))
             {
                 _source = sourceTex;
             }
 
-            if (TryDrawPreview(settings.Destination, camera, FilterMode.Point, out var destinationTex, null, settings.PreviewConfig.Background))
+            if (TryDrawPreview(settings.Destination, camera, FilterMode.Point, TextureFormat.RGBA32, out var destinationTex, null, settings.PreviewConfig.Background))
             {
                 _destination = destinationTex;
             }
 
             var normalBackground = new Color(0.5f, 0.5f, 1f, 1f);
-            if (TryDrawPreview(settings.Normal, camera, FilterMode.Point, out var normalTex, settings.NormalShader, normalBackground))
+            if (TryDrawPreview(settings.Normal, camera, FilterMode.Point, TextureFormat.RGB24, out var normalTex, settings.NormalShader))
             {
                 _normal = normalTex;
             }
@@ -120,14 +119,14 @@ namespace PixelMaker
             renderTemp.filterMode = FilterMode.Point;
 
             Graphics.Blit(settings.Destination, renderTemp, settings.BitColorMaterial);
-            _final = renderTemp.ToTexture2D(FilterMode.Point);
+            _final = renderTemp.ToTexture2D(FilterMode.Point, TextureFormat.RGBA32);
             RenderTexture.ReleaseTemporary(renderTemp);
         }
 
-        public void ClearTextures() 
+        public void ClearTextures()
         {
             _normal = null;
-            _final = null; 
+            _final = null;
         }
 
         public bool TryGetRenderFrame(out Texture2D destination)
@@ -144,7 +143,7 @@ namespace PixelMaker
 
         public bool TryGetNormalFrame(out Texture2D normal)
         {
-            if(_normal != null)
+            if (_normal != null)
             {
                 normal = _normal;
 
@@ -168,7 +167,7 @@ namespace PixelMaker
 
         #region Private methods
 
-        private bool TryDrawPreview(RenderTexture renderTexture, Camera camera, FilterMode filterMode, out Texture2D texture, Shader shader = null, Color background = default)
+        private bool TryDrawPreview(RenderTexture renderTexture, Camera camera, FilterMode filterMode, TextureFormat textureFormat, out Texture2D texture, Shader shader = null, Color background = default)
         {
             camera.backgroundColor = background;
 
@@ -184,7 +183,7 @@ namespace PixelMaker
                 camera.RenderWithShader(shader, "");
             }
 
-            texture = renderTexture.ToTexture2D(filterMode);
+            texture = renderTexture.ToTexture2D(filterMode, textureFormat);
 
             if (texture != null)
             {
@@ -227,7 +226,7 @@ namespace PixelMaker
         private void UpdateCamera(Camera camera, PixelMakerSettings settings)
         {
             camera.orthographicSize = settings.PreviewConfig.CameraScale;
-            camera.transform.localPosition = 
+            camera.transform.localPosition =
                 new Vector3(
                 settings.PreviewConfig.CameraPositionX,
                 settings.PreviewConfig.CameraPositionY,
@@ -246,7 +245,7 @@ namespace PixelMaker
 
         private void UpdateMaterial(PixelMakerSettings settings)
         {
-            if(settings.PreviewConfig == null
+            if (settings.PreviewConfig == null
                 || settings.PreviewConfig.Palette == null)
             {
                 return;

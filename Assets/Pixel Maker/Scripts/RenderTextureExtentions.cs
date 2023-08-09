@@ -8,9 +8,9 @@ namespace PixelMaker
 {
     public static class RenderTextureExtentions
     {
-        public static Texture2D ToTexture2D(this RenderTexture renderTexture, FilterMode filterMode)
+        public static Texture2D ToTexture2D(this RenderTexture renderTexture, FilterMode filterMode, TextureFormat textureFormat)
         {
-            Texture2D tex = new Texture2D(renderTexture.width, renderTexture.height);
+            Texture2D tex = new Texture2D(renderTexture.width, renderTexture.height, textureFormat, false);
 
             var old_rt = RenderTexture.active;
             RenderTexture.active = renderTexture;
