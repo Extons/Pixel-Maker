@@ -13,25 +13,25 @@ MonoBehaviour:
   m_Name: Robot.previewConfig
   m_EditorClassIdentifier: 
   _sourceRenderScale: 250
-  _renderScale: 64
+  _renderScale: 40
   _background: {r: 0, g: 0, b: 0, a: 0}
-  _usePalette: 0
-  _convertToBit: 0
+  _usePalette: 1
+  _convertToBit: 1
   _palette: {fileID: 11400000, guid: 86daf398766b93943905b005583ad487, type: 2}
   _outlineColor: {r: 0, g: 0, b: 0, a: 1}
   _outlineWidth: 1
   _saturation: 0
   _contrast: 1
   _bitValue: 8
-  _model: {fileID: 919132149155446097, guid: c7b6089e047da604d853c49a18c37531, type: 3}
-  _clip: {fileID: -5324238279805231817, guid: 78d1a6b1981b1a248942a398247b8951, type: 3}
+  _model: {fileID: 919132149155446097, guid: af37c9798bd115640817e8a9b18c703b, type: 3}
+  _clip: {fileID: -203655887218126122, guid: af37c9798bd115640817e8a9b18c703b, type: 3}
   _modelPositionX: 0
-  _modelPositionY: -5
+  _modelPositionY: -4.9
   _modelPositionZ: 0
   _modelRotationX: 0
-  _modelRotationY: 202.54
+  _modelRotationY: 504.01
   _modelRotationZ: 0
-  _modelScale: 3.58
+  _modelScale: 5.29
   _cameraPositionX: 0
   _cameraPositionY: 0
   _cameraScale: 5

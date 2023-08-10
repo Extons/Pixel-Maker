@@ -23,6 +23,8 @@ namespace PixelMaker
 
         private Camera _normalCamera = null;
 
+        private Camera _uvCamera = null;
+
         private PixelMakerController _controller = null;
 
         private PixelMakerPreview _preview = null;
@@ -39,9 +41,13 @@ namespace PixelMaker
 
         private AnimationBuffer _normalsBuffer = null;
 
+        private AnimationBuffer _uvsBuffer = null;
+
         private bool _inBuildMode = false;
 
         private bool _inPreviewAnimMode = false;
+
+        private Vector2 _scrollPosition = default;
 
         #endregion Private members
 
@@ -100,7 +106,7 @@ namespace PixelMaker
             }
             else
             {
-                _preview.UpdatePreviews(_controller, _settings, _sourceCamera, _normalCamera);
+                _preview.UpdatePreviews(_controller, _settings, _sourceCamera, _normalCamera, _uvCamera);
                 _animator.UpdateAnimator(_controller, _animation, _settings.PreviewConfig.Clip);
             }
 
@@ -110,9 +116,13 @@ namespace PixelMaker
                 return;
             }
 
+            _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition);
+
             _previewEditor.OnInspectorGUI();
             _animatorEditor.OnInspectorGUI();
             ControllerGUI();
+
+            EditorGUILayout.EndScrollView();
 
             if (_settings.RealTimeUpdate)
             {
@@ -145,18 +155,25 @@ namespace PixelMaker
             _animatorEditor = Editor.CreateEditor(_animator);
             _spritesBuffer = new AnimationBuffer();
             _normalsBuffer = new AnimationBuffer();
+            _uvsBuffer = new AnimationBuffer();
             _inBuildMode = false;
 
+            _animator.OnAnimationUpdateRegister(ApplyMaterialToPreview, true);
+
             var allCamera = FindObjectsOfType<Camera>();
-            foreach(Camera camera in allCamera)
+            foreach (Camera camera in allCamera)
             {
-                if(camera.gameObject.tag == "Source Camera")
+                if (camera.gameObject.tag == "Source Camera")
                 {
                     _sourceCamera = camera;
                 }
-                else if(camera.gameObject.tag == "Normal Camera")
+                else if (camera.gameObject.tag == "Normal Camera")
                 {
                     _normalCamera = camera;
+                }
+                else if (camera.gameObject.tag == "UV Camera")
+                {
+                    _uvCamera = camera;
                 }
             }
         }
@@ -181,6 +198,14 @@ namespace PixelMaker
 
         private bool StudioSceneLoaded() => !StudioSceneUnloaded();
 
+        private void ApplyMaterialToPreview()
+        {
+            if (_preview != null)
+            {
+                _preview.UpdateTextureMaterial(_settings);
+            }
+        }
+
         private void ControllerGUI()
         {
             if (GUILayout.Button("Update Model and AnimationClip"))
@@ -193,10 +218,9 @@ namespace PixelMaker
                 _animation = animation;
             }
 
-            if (_preview != null
-                && GUILayout.Button("Apply Material"))
+            if (GUILayout.Button("Apply Material"))
             {
-                _preview.UpdateTextureMaterial(_settings);
+                ApplyMaterialToPreview();
             }
 
             if (_preview != null
@@ -228,6 +252,7 @@ namespace PixelMaker
             int frames = Mathf.RoundToInt(_settings.PreviewConfig.Clip.GetFrames());
             _spritesBuffer.Clear();
             _normalsBuffer.Clear();
+            _uvsBuffer.Clear();
 
             _preview.ClearTextures();
 
@@ -236,7 +261,7 @@ namespace PixelMaker
                 _controller.SetAnimationAtFrame(_animation, _settings.PreviewConfig.Clip, i);
                 yield return null;
 
-                _preview.UpdatePreviews(_controller, _settings, _sourceCamera, _normalCamera);
+                _preview.UpdatePreviews(_controller, _settings, _sourceCamera, _normalCamera, _uvCamera);
                 _preview.UpdateTextureMaterial(_settings);
 
                 if (_preview.TryGetRenderFrame(out var finalRender))
@@ -247,6 +272,11 @@ namespace PixelMaker
                 if (_preview.TryGetNormalFrame(out var normalRender))
                 {
                     _normalsBuffer.AddBuffer(normalRender);
+                }
+
+                if (_preview.TryGetUVFrame(out var uvRender))
+                {
+                    _uvsBuffer.AddBuffer(uvRender);
                 }
             }
 
@@ -266,7 +296,8 @@ namespace PixelMaker
 
             _spritesBuffer.Reduice(_settings.PreviewConfig.AnimationReduice);
             _normalsBuffer.Reduice(_settings.PreviewConfig.AnimationReduice);
-            
+            _uvsBuffer.Reduice(_settings.PreviewConfig.AnimationReduice);
+
             if (_settings.PreviewConfig.SingleRow)
             {
                 columns = _spritesBuffer.Length;
@@ -275,9 +306,11 @@ namespace PixelMaker
 
             _spritesBuffer.GetSpriteSheet(out var albedo, new Color(0, 0, 0, 0), scale, scale, FilterMode.Point, rows, columns);
             _normalsBuffer.GetSpriteSheet(out var normal, new Color(0.5f, 0.5f, 1f, 1f), scale, scale, FilterMode.Point, rows, columns);
+            _uvsBuffer.GetSpriteSheet(out var uv, new Color(0, 0, 0, 0), scale, scale, FilterMode.Point, rows, columns);
 
             DumpSpriteSheet(albedo, $"albedo{prefix}");
             DumpSpriteSheet(normal, $"normal{prefix}");
+            DumpSpriteSheet(uv, $"uv{prefix}");
         }
 
         private IEnumerator PreviewAnim()
@@ -315,11 +348,17 @@ namespace PixelMaker
             name = name.Replace(" ", "_").Replace("|", "_");
 
             string fileName = $"Spritesheet_{prefix}_[{name}].png";
+            string folder = _settings.PreviewConfig.DumpDirectory;
+            string filePath = System.IO.Path.Combine(folder, fileName);
 
-            string directory = _settings.PreviewConfig.DumpDirectory + "/" + fileName;
-            System.IO.File.WriteAllBytes(directory, bytes);
+            if (!System.IO.Directory.Exists(folder))
+            {
+                System.IO.Directory.CreateDirectory(folder);
+            }
 
-            Debug.Log($"Dump of {fileName} \nDirectory : {directory}");
+            System.IO.File.WriteAllBytes(filePath, bytes);
+
+            Debug.Log($"Dump of {fileName} \nPath : {filePath}");
 
             AssetDatabase.Refresh();
         }

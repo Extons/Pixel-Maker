@@ -1,6 +1,4 @@
 ﻿using Sirenix.OdinInspector;
-using System.IO;
-using UnityEditor;
 using UnityEngine;
 
 namespace PixelMaker
@@ -9,7 +7,7 @@ namespace PixelMaker
     {
         #region Constants members
 
-        private const int _previewSize = 128 * 3;
+        private const int _previewSize = 128 * 2;
 
         #endregion Constants members
 
@@ -48,6 +46,17 @@ namespace PixelMaker
         [SerializeField, ReadOnly]
         [DisplayAsString, HideLabel]
         private string _nrmDisplay = "120x120";
+
+        [VerticalGroup("Split/UV")]
+        [TexturePreview(_previewSize, _previewSize, FilterMode.Point)]
+        [ShowInInspector]
+        [ReadOnly, HideLabel]
+        private Texture2D _uv = null;
+
+        [VerticalGroup("Split/UV")]
+        [SerializeField, ReadOnly]
+        [DisplayAsString, HideLabel]
+        private string _uvDisplay = "120x120";
 
         [VerticalGroup("Split/Final")]
         [TexturePreview(_previewSize, _previewSize, FilterMode.Point, false)]
@@ -94,57 +103,28 @@ namespace PixelMaker
 
         #region API
 
-        public void UpdatePreviews(PixelMakerController controller, PixelMakerSettings settings, Camera sourceCamera, Camera normalCamera)
+        public void UpdatePreviews(PixelMakerController controller, PixelMakerSettings settings, Camera sourceCamera, Camera normalCamera, Camera uvCamera)
         {
             UpdateRenderScale(settings);
-            //ResetCamera(camera);
 
-            //if (TryDrawPreview(settings.Source, camera, FilterMode.Bilinear, out var sourceTex))
             if (TryDrawPreview(settings.Source, sourceCamera, FilterMode.Bilinear, TextureFormat.RGBA32, out var sourceTex))
             {
                 _source = sourceTex;
-                if (GUILayout.Button("Drop Source Texture2D"))
-                {
-                    var folder = "Assets/DEBUG/";
-                    if (!System.IO.Directory.Exists(folder))
-                    {
-                        System.IO.Directory.CreateDirectory(folder);
-                    }
-
-                    string fileName = $"Source_{System.DateTime.Now:yyyyMMddHHmmss}.png";
-                    string filePath = System.IO.Path.Combine(folder, fileName);
-
-                    File.WriteAllBytes(filePath, sourceTex.EncodeToPNG());
-                    AssetDatabase.Refresh();
-                }
             }
 
-            //if (TryDrawPreview(settings.Destination, camera, FilterMode.Point, out var destinationTex, null, settings.PreviewConfig.Background))
             if (TryDrawPreview(settings.Destination, sourceCamera, FilterMode.Point, TextureFormat.RGBA32, out var destinationTex))
             {
                 _destination = destinationTex;
             }
 
-            var normalBackground = new Color(0.5f, 0.5f, 1f, 1f);
-            //if (TryDrawPreview(settings.Normal, camera, FilterMode.Point, out var normalTex, settings.NormalShader, normalBackground))
             if (TryDrawPreview(settings.Normal, normalCamera, FilterMode.Point, TextureFormat.RGB24, out var normalTex))
             {
                 _normal = normalTex;
+            }
 
-                if (GUILayout.Button("Drop Normal Texture2D"))
-                {
-                    var folder = "Assets/DEBUG/";
-                    if (!System.IO.Directory.Exists(folder))
-                    {
-                        System.IO.Directory.CreateDirectory(folder);
-                    }
-
-                    string fileName = $"Normal_{System.DateTime.Now:yyyyMMddHHmmss}.png";
-                    string filePath = System.IO.Path.Combine(folder, fileName);
-
-                    File.WriteAllBytes(filePath, normalTex.EncodeToPNG());
-                    AssetDatabase.Refresh();
-                }
+            if (TryDrawPreview(settings.UV, uvCamera, FilterMode.Point, TextureFormat.RGB24, out var uvTex))
+            {
+                _uv = uvTex;
             }
 
             UpdateMaterial(settings);
@@ -193,6 +173,18 @@ namespace PixelMaker
             return false;
         }
 
+        public bool TryGetUVFrame(out Texture2D uv)
+        {
+            if (_uv != null)
+            {
+                uv = _uv;
+                return true;
+            }
+
+            uv = null;
+            return false;
+        }
+
         public void PreviewTexture(Texture2D texture)
         {
             _inAnimPreview = (texture != null);
@@ -205,33 +197,6 @@ namespace PixelMaker
         #endregion API
 
         #region Private methods
-
-        private bool TryDrawPreview(RenderTexture renderTexture, Camera camera, FilterMode filterMode, out Texture2D texture, Shader shader = null, Color background = default)
-        {
-            camera.backgroundColor = background;
-
-            if (shader == null)
-            {
-                camera.targetTexture = renderTexture;
-                camera.ResetReplacementShader();
-                camera.Render();
-            }
-            else
-            {
-                camera.targetTexture = renderTexture;
-                camera.RenderWithShader(shader, "");
-            }
-
-            texture = renderTexture.ToTexture2D(filterMode, TextureFormat.RGBA32);
-            camera.targetTexture = null;
-
-            if (texture != null)
-            {
-                return true;
-            }
-
-            return false;
-        }
 
         private bool TryDrawPreview(RenderTexture renderTexture, Camera camera, FilterMode filterMode, TextureFormat textureFormat, out Texture2D texture)
         {
@@ -251,34 +216,21 @@ namespace PixelMaker
             return false;
         }
 
-        private void ResetCamera(Camera camera)
-        {
-            camera.backgroundColor = new Color(0, 0, 0, 0);
-            camera.ResetReplacementShader();
+        private void UpdateRenderScale(PixelMakerSettings settings)
+        {            
+            UpdateRenderScale(settings.Source, settings.PreviewConfig.SourceRenderScale, "Source", out _srcDisplay);
+            UpdateRenderScale(settings.Destination, settings.PreviewConfig.RenderScale, "Low Resolution", out _destDisplay);
+            UpdateRenderScale(settings.Normal, settings.PreviewConfig.RenderScale, "Normal", out _nrmDisplay);
+            UpdateRenderScale(settings.UV, settings.PreviewConfig.RenderScale, "UV", out _uvDisplay);
+            UpdateRenderScale(settings.Destination, settings.PreviewConfig.RenderScale, "Final Result", out _finalDisplay);
         }
 
-        private void UpdateRenderScale(PixelMakerSettings settings)
+        private void UpdateRenderScale(RenderTexture renderTexture, int scale, string prefix, out string display)
         {
-            var sourceRenderTexture = settings.Source;
-            var destinationRenderTexture = settings.Destination;
-            var normalRenderTexture = settings.Normal;
-
-            sourceRenderTexture.Release();
-            sourceRenderTexture.height = 2 * settings.PreviewConfig.SourceRenderScale;
-            sourceRenderTexture.width = 2 * settings.PreviewConfig.SourceRenderScale;
-
-            destinationRenderTexture.Release();
-            destinationRenderTexture.height = 2 * settings.PreviewConfig.RenderScale;
-            destinationRenderTexture.width = 2 * settings.PreviewConfig.RenderScale;
-
-            normalRenderTexture.Release();
-            normalRenderTexture.height = 2 * settings.PreviewConfig.RenderScale;
-            normalRenderTexture.width = 2 * settings.PreviewConfig.RenderScale;
-
-            _srcDisplay = $"Source : {settings.Source.height}x{settings.Source.width}";
-            _destDisplay = $"Low Resolution : {destinationRenderTexture.height}x{destinationRenderTexture.width}";
-            _nrmDisplay = $"Normal : {normalRenderTexture.height}x{normalRenderTexture.width}";
-            _finalDisplay = $"Final Result : {destinationRenderTexture.height}x{destinationRenderTexture.width}";
+            renderTexture.Release();
+            renderTexture.height = 2 * scale;
+            renderTexture.width = 2 * scale;
+            display = $"{prefix} : {renderTexture.height}x{renderTexture.width}";
         }
 
         private void UpdateCamera(Camera camera, PixelMakerSettings settings)

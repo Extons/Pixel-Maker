@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Source Camera
   - Normal Camera
+  - UV Camera
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - UV
   - Water
   - UI
   - 

@@ -1,15 +1,25 @@
 ﻿using Sirenix.OdinInspector;
-using System;
-using System.Collections;
 using UnityEngine;
 
 namespace PixelMaker
 {
     public class PixelMakerController : MonoBehaviour
     {
+        #region Serialized members
+
+        [SerializeField, Required]
+        private Material _uvMaterial = null;
+
+        [SerializeField, Required]
+        private LayerMask _layerMask = default;
+
+        #endregion Serialized members
+
         #region Private members
 
-        private GameObject _model = null;
+        private Animation _uvAnimation = null;
+
+        private GameObject _parent = null;
 
         #endregion Private members
 
@@ -30,31 +40,13 @@ namespace PixelMaker
             transform.localScale = Vector3.one * scale;
         }
 
-        public void UpdateModel(GameObject model, out Animation animation)
+        public void UpdateModel(GameObject instance, out Animation animation)
         {
-            if(_model != null)
-            {
-                DestroyImmediate(_model);
-            }
-            else
-            {
-                foreach(Transform item in transform)
-                {
-                    DestroyImmediate(item.gameObject);
-                }
-            }
+            DestroyParent();
 
-            _model = Instantiate(model, transform) as GameObject;
-
-            _model.transform.localRotation = Quaternion.identity;
-            _model.transform.localPosition = Vector3.zero;
-
-            if(!_model.TryGetComponent<Animation>(out animation))
-            {
-                animation = _model.AddComponent<Animation>();
-                animation.cullingType = AnimationCullingType.AlwaysAnimate;
-                animation.playAutomatically = true;
-            }
+            InstantiateModel(instance, out animation, out _);
+            InstantiateModel(instance, out _uvAnimation, out var uvModel);
+            ReplaceModelMaterials(uvModel, _uvMaterial, 3);
         }
 
         public void GetClipFrames(AnimationClip clip, out float clipFrames)
@@ -66,6 +58,49 @@ namespace PixelMaker
         }
 
         public void SetAnimationAtFrame(Animation animation, AnimationClip clip, int targetFrame)
+        {
+            SetAnimationAtFrameModel(animation, clip, targetFrame);
+            SetAnimationAtFrameModel(_uvAnimation, clip, targetFrame);
+        }
+
+        #endregion API
+
+        #region Private methods
+
+        private void InstantiateModel(GameObject instance, out Animation animation, out GameObject gameObject)
+        {
+            if (_parent == null)
+            {
+                _parent = new GameObject("Parent");
+                _parent.transform.SetParent(transform);
+            }
+
+            var model = Instantiate(instance, transform) as GameObject;
+
+            model.transform.localRotation = Quaternion.identity;
+            model.transform.localPosition = Vector3.zero;
+
+            model.transform.SetParent(_parent.transform);
+
+            if (!model.TryGetComponent<Animation>(out animation))
+            {
+                animation = model.AddComponent<Animation>();
+                animation.cullingType = AnimationCullingType.AlwaysAnimate;
+                animation.playAutomatically = true;
+            }
+
+            gameObject = model;
+        }
+
+        private void DestroyParent()
+        {
+            if (_parent != null)
+            {
+                DestroyImmediate(_parent);
+            }
+        }
+
+        private void SetAnimationAtFrameModel(Animation animation, AnimationClip clip, int targetFrame)
         {
             string name = clip.name;
             float frameRate = clip.frameRate;
@@ -89,6 +124,25 @@ namespace PixelMaker
             }
         }
 
-        #endregion API
+        private void ReplaceModelMaterials(GameObject model, Material material, int layer = 0)
+        {
+            var renderers = model.GetComponentsInChildren<Renderer>();
+
+            foreach (Renderer renderer in renderers)
+            {
+                int length = renderer.sharedMaterials.Length;
+                Material[] newMaterials = new Material[length];
+
+                for (int i = 0; i < length; i++)
+                {
+                    newMaterials[i] = material;
+                }
+
+                renderer.sharedMaterials = newMaterials;
+                renderer.gameObject.layer = layer;
+            }
+        }
+
+        #endregion Private methods
     }
 }
