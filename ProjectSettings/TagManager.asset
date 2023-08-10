@@ -3,12 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Source Camera
+  - Normal Camera
+  - UV Camera
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - UV
   - Water
   - UI
   - 

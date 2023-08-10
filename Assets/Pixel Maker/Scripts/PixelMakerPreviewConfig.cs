@@ -215,8 +215,7 @@ namespace PixelMaker
         #endregion Public members
 
         #region Private methods
-
-
+        
         private IEnumerable<AnimationClip> GetAnimationClipsFromModels()
         {
             List<AnimationClip> animationClips = new List<AnimationClip>();

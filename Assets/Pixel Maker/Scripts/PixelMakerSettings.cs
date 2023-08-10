@@ -32,6 +32,9 @@ namespace PixelMaker
         private RenderTexture _normal = null;
 
         [SerializeField, Required]
+        private RenderTexture _uv = null;
+
+        [SerializeField, Required]
         private RenderTextureFormat _renderTextureFormat = default;
 
         [SerializeField, Required]
@@ -57,6 +60,8 @@ namespace PixelMaker
         public RenderTexture Destination => _destination;
 
         public RenderTexture Normal => _normal;
+
+        public RenderTexture UV => _uv;
 
         public RenderTextureFormat RenderTextureFormat => _renderTextureFormat;
 

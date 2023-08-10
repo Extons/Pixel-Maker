@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_View Space Normal
+  m_Name: Custom_UVSpaceShader
   m_Shader: {fileID: 4800000, guid: 62fed9d1def5ef24a86670b016b581a4, type: 3}
-  m_ShaderKeywords: _RECONSTRUCTIONMETHOD_3_TAP
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -23,7 +23,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _ReconstructionMethod: 0
+    m_Floats: []
     m_Colors: []
   m_BuildTextureStacks: []

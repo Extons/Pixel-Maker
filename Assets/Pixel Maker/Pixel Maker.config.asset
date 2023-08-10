@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39018f817d944643838cc881942f483, type: 3}
   m_Name: Pixel Maker.config
   m_EditorClassIdentifier: 
-  _realTimeUpdate: 0
+  _realTimeUpdate: 1
   _studio: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
   _source: {fileID: 8400000, guid: d04fdbfa06fc58540b03af79816072b7, type: 2}
   _destination: {fileID: 8400000, guid: a8636445407956842b56fc64b9be9aaf, type: 2}
   _normal: {fileID: 8400000, guid: 1f25f92dc93538741beb97a9d5a39f1e, type: 2}
+  _uv: {fileID: 8400000, guid: 6532373406826994b8fa2798a3983363, type: 2}
   _renderTextureFormat: 0
-  _normalShader: {fileID: 4800000, guid: 558ddf48401ae1749b63f44ac6717315, type: 3}
+  _normalShader: {fileID: 4800000, guid: 62fed9d1def5ef24a86670b016b581a4, type: 3}
   _bitColorMaterial: {fileID: 2100000, guid: 4bd4d2792f82e564697d47815c3bda9a, type: 2}
   _previewConfig: {fileID: 11400000, guid: 0f4eed4f4673945459df038c57ede332, type: 2}

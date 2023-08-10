@@ -33,7 +33,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Bit: 1
-    - _BitValue: 128
+    - _BitValue: 8
     - _Contrast: 1
     - _Offset: 120
     - _OutlineThickness: 0.0316

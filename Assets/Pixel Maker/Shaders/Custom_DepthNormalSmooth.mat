@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_View Space Normal
+  m_Name: Custom_DepthNormalSmooth
   m_Shader: {fileID: 4800000, guid: 62fed9d1def5ef24a86670b016b581a4, type: 3}
   m_ShaderKeywords: _RECONSTRUCTIONMETHOD_3_TAP
   m_LightmapFlags: 4
@@ -25,5 +25,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ReconstructionMethod: 0
-    m_Colors: []
+    m_Colors:
+    - _HighlightDirection: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
