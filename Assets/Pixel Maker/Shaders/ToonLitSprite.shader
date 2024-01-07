@@ -20,6 +20,7 @@
 	}
 		SubShader
 		{
+			 Tags { "RenderType" = "Opaque" }
 			Pass
 			{
 				// Setup our pass to use Forward rendering, and only receive

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b48a17aa7128c34a8b9d78bd1a861b5, type: 3}
+  m_Name: Robot.previewConfig
+  m_EditorClassIdentifier: 
+  _sourceRenderScale: 250
+  _renderScale: 70
+  _background: {r: 0, g: 0, b: 0, a: 0}
+  _usePalette: 1
+  _convertToBit: 1
+  _palette: {fileID: 11400000, guid: 86daf398766b93943905b005583ad487, type: 2}
+  _outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  _outlineWidth: 1
+  _saturation: 0
+  _contrast: 1
+  _bitValue: 8
+  _model: {fileID: 919132149155446097, guid: 4e95fb4469e408e4a8f4e7773ac03037, type: 3}
+  _clip: {fileID: 5522812681064789136, guid: 4e95fb4469e408e4a8f4e7773ac03037, type: 3}
+  _modelPositionX: 0
+  _modelPositionY: -4.5
+  _modelPositionZ: 0
+  _modelRotationX: 0
+  _modelRotationY: -90
+  _modelRotationZ: 0
+  _modelScale: 2.04
+  _cameraPositionX: 0
+  _cameraPositionY: 0
+  _cameraScale: 5
+  _singleRow: 1
+  _animationReduice: 0
+  _spriteSheetColumns: 0
+  _prefix: character
+  _dumpDirectory: C:/Users/Lyncis/Documents/GitHub/Pixel-Maker/Assets/Pixel Maker/Assets/Spritesheets/Character
