@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Robot.previewConfig
   m_EditorClassIdentifier: 
   _sourceRenderScale: 250
-  _renderScale: 40
+  _renderScale: 70
   _background: {r: 0, g: 0, b: 0, a: 0}
   _usePalette: 1
   _convertToBit: 1
@@ -23,20 +23,20 @@ MonoBehaviour:
   _saturation: 0
   _contrast: 1
   _bitValue: 8
-  _model: {fileID: 919132149155446097, guid: af37c9798bd115640817e8a9b18c703b, type: 3}
-  _clip: {fileID: -203655887218126122, guid: af37c9798bd115640817e8a9b18c703b, type: 3}
+  _model: {fileID: 919132149155446097, guid: 4e95fb4469e408e4a8f4e7773ac03037, type: 3}
+  _clip: {fileID: 5522812681064789136, guid: 4e95fb4469e408e4a8f4e7773ac03037, type: 3}
   _modelPositionX: 0
-  _modelPositionY: -4.9
+  _modelPositionY: -4.5
   _modelPositionZ: 0
   _modelRotationX: 0
-  _modelRotationY: 504.01
+  _modelRotationY: -90
   _modelRotationZ: 0
-  _modelScale: 5.29
+  _modelScale: 2.04
   _cameraPositionX: 0
   _cameraPositionY: 0
   _cameraScale: 5
   _singleRow: 1
   _animationReduice: 0
   _spriteSheetColumns: 0
-  _prefix: _noGun_XXX
-  _dumpDirectory: C:/Users/Lyncis/Documents/GitHub/Pixel-Maker/Assets/Pixel Maker/Assets/Spritesheets/Robot
+  _prefix: character
+  _dumpDirectory: C:/Users/Lyncis/Documents/GitHub/Pixel-Maker/Assets/Pixel Maker/Assets/Spritesheets/Character
