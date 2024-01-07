@@ -308,9 +308,9 @@ namespace PixelMaker
             _normalsBuffer.GetSpriteSheet(out var normal, new Color(0.5f, 0.5f, 1f, 1f), scale, scale, FilterMode.Point, rows, columns);
             _uvsBuffer.GetSpriteSheet(out var uv, new Color(0, 0, 0, 0), scale, scale, FilterMode.Point, rows, columns);
 
-            DumpSpriteSheet(albedo, $"albedo{prefix}");
-            DumpSpriteSheet(normal, $"normal{prefix}");
-            DumpSpriteSheet(uv, $"uv{prefix}");
+            DumpSpriteSheet(albedo, $"{prefix}_albedo");
+            DumpSpriteSheet(normal, $"{prefix}_normal");
+            DumpSpriteSheet(uv, $"{prefix}_uv");
         }
 
         private IEnumerator PreviewAnim()
@@ -344,10 +344,10 @@ namespace PixelMaker
         {
             byte[] bytes = spritesheet.EncodeToPNG();
 
-            string name = _settings.PreviewConfig.Clip.name;
+            string name = _settings.PreviewConfig.Clip.name.ToLower().Replace(" ", "_");
             name = name.Replace(" ", "_").Replace("|", "_");
 
-            string fileName = $"Spritesheet_{prefix}_[{name}].png";
+            string fileName = $"Spritesheet_{prefix}_{name}.png";
             string folder = _settings.PreviewConfig.DumpDirectory;
             string filePath = System.IO.Path.Combine(folder, fileName);
 

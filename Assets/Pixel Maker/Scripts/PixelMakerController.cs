@@ -1,5 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace PixelMaker
 {
@@ -12,6 +13,12 @@ namespace PixelMaker
 
         [SerializeField, Required]
         private LayerMask _layerMask = default;
+
+        [SerializeField, Required]
+        private ShadowCastingMode _shadowCastingMode = default;
+
+        [SerializeField, Required]
+        private bool _receiveShadows = default;
 
         #endregion Serialized members
 
@@ -46,7 +53,7 @@ namespace PixelMaker
 
             InstantiateModel(instance, out animation, out _);
             InstantiateModel(instance, out _uvAnimation, out var uvModel);
-            ReplaceModelMaterials(uvModel, _uvMaterial, 3);
+            ReplaceModelMaterials(uvModel, _uvMaterial, _shadowCastingMode, _receiveShadows, 3);
         }
 
         public void GetClipFrames(AnimationClip clip, out float clipFrames)
@@ -109,6 +116,12 @@ namespace PixelMaker
             float frames = duration * frameRate;
 
             float targetTime = (targetFrame * duration) / frames;
+
+            if (animation[name] == null)
+            {
+                animation.AddClip(clip, name);
+            }
+
             var state = animation[name];
 
             if (state != null)
@@ -124,7 +137,7 @@ namespace PixelMaker
             }
         }
 
-        private void ReplaceModelMaterials(GameObject model, Material material, int layer = 0)
+        private void ReplaceModelMaterials(GameObject model, Material material, ShadowCastingMode castingShadowMode, bool receiveShadows, int layer = 0)
         {
             var renderers = model.GetComponentsInChildren<Renderer>();
 
@@ -140,6 +153,8 @@ namespace PixelMaker
 
                 renderer.sharedMaterials = newMaterials;
                 renderer.gameObject.layer = layer;
+                renderer.shadowCastingMode = castingShadowMode;
+                renderer.receiveShadows = receiveShadows;
             }
         }
 

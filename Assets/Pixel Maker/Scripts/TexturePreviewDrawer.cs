@@ -5,7 +5,6 @@ using UnityEngine;
 
 #endif //UNITY_EDITOR
 
-
 namespace PixelMaker
 {
     [CustomPropertyDrawer(typeof(TexturePreviewAttribute))]
